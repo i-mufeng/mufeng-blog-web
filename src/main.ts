@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import { Viewer } from 'v-viewer'
 import { createPinia } from 'pinia'
 import App from './App.vue'
-/* 自定义css */
 import '@/assets/base.css'
 import router from '@/router'
 
@@ -26,8 +25,11 @@ Viewer.setDefaults({
 })
 app.use(() => Viewer)
 
+/* Vue 存储库 */
 app.use(createPinia())
 
+/* 路由 */
 app.use(router)
 
+/* 主页面 */
 app.mount('#app')
