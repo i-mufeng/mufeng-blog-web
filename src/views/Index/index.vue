@@ -1,16 +1,16 @@
 <!--
  * @Author: MuFeng
- * @Date: 2023/5/1 12:10
+ * @Date: 2023/5/1 9:07
  * @FileDescription:
  -->
-<script lang='ts' setup>
-
+<script>
+export default {
+  name: 'index'
+}
 </script>
 
-<template >
-<div class='site'>
-
-</div>
+<template>
+<div></div>
 </template>
 
 <style scoped>
