@@ -4,12 +4,58 @@ import type { RouteRecordRaw } from 'vue-router'
 const routes:Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
-    component: () => import('@/views/Home/index.vue'),
-    alias: '/hom',
-    meta: {
-      title: 'Home'
-    }
+    component: () => import('@/views/Index/index.vue'),
+    redirect: '/home',
+    children:[
+      {
+        path: '/home',
+        name: 'home',
+        component: () => import('@/views/Home/home.vue'),
+        meta: {title: '首页'}
+      },
+      // {
+      //   path: '/archives',
+      //   name: 'archives',
+      //   component: () => import('@/views/archives/Archives'),
+      //   meta: {title: '归档'}
+      // },
+      // {
+      //   path: '/blog/:id',
+      //   name: 'blog',
+      //   component: () => import('@/views/blog/Blog'),
+      //   meta: {title: '博客'}
+      // },
+      // {
+      //   path: '/tag/:name',
+      //   name: 'tag',
+      //   component: () => import('@/views/tag/Tag'),
+      //   meta: {title: '标签'}
+      // },
+      // {
+      //   path: '/category/:name',
+      //   name: 'category',
+      //   component: () => import('@/views/category/Category'),
+      //   meta: {title: '分类'}
+      // },
+      // {
+      //   path: '/moments',
+      //   name: 'moments',
+      //   component: () => import('@/views/moments/Moments'),
+      //   meta: {title: '动态'}
+      // },
+      // {
+      //   path: '/friends',
+      //   name: 'friends',
+      //   component: () => import('@/views/friends/Friends'),
+      //   meta: {title: '友人帐'}
+      // },
+      // {
+      //   path: '/about',
+      //   name: 'about',
+      //   component: () => import('@/views/about/About'),
+      //   meta: {title: '关于我'}
+      // }
+    ]
   }
 ]
 const router = createRouter({
