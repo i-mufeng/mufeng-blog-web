@@ -8,9 +8,9 @@ import { ref } from 'vue'
 
 const blogName = ref<string>()
 
-defineProps({
+const props=defineProps({
   blogName: String,
-  categoryList: Array<>
+  categoryList: Array
 })
 
 
@@ -18,13 +18,14 @@ defineProps({
 <template>
   <div>
     <div>
-      <!--图标-->
+      <!--博客名-->
       <router-link to='/'>
-        <h3>{{ blogName }}</h3>
+        <h3>{{ props.blogName }}</h3>
       </router-link>
       <!--首页-->
       <router-link to='/home'>
         <i></i>
+        <span>首页</span>
       </router-link>
       <!--分类-->
       <el-dropdown>
@@ -33,7 +34,7 @@ defineProps({
           <span>分类</span>
         </span>
         <el-dropdown-menu>
-          <el-dropdown-item/>
+          <el-dropdown-item :command="category.name" v-for="(category,index) in props.categoryList" :key="index">{{ category.name }}></el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
       <!--归档-->
