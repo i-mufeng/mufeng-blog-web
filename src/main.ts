@@ -4,6 +4,10 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import '@/assets/base.css'
 import router from '@/router'
+// element plus
+import ElementPlus from "element-plus";
+// element icons
+import * as Icons from "@element-plus/icons-vue";
 
 console.log(
   '%c MuFengBlog %c By MuFeng %c https://github.com/i-mufeng/mufeng-blog',
@@ -23,13 +27,9 @@ Viewer.setDefaults({
     next: true
   }
 })
-app.use(() => Viewer)
-
-/* Vue 存储库 */
-app.use(createPinia())
-
-/* 路由 */
-app.use(router)
-
-/* 主页面 */
-app.mount('#app')
+// 注册element Icons组件
+Object.keys(Icons).forEach(key => {
+  app.component(key, Icons[key as keyof typeof Icons]);
+});
+/* 路由、Vue 存储库、Viewer 图片查看插件、element-plus*/
+app.use(router).use(createPinia()).use(() => Viewer).use(ElementPlus).mount("#app");
