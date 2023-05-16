@@ -6,6 +6,8 @@ import '@/assets/base.css'
 import router from '@/router'
 // element plus
 import ElementPlus from "element-plus";
+// element css
+import "element-plus/dist/index.css"
 // element icons
 import * as Icons from "@element-plus/icons-vue";
 
